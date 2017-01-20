@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Does body weight matters
+title: Does Body Weight Matter
 ---
 
 The body weight is considered as an important measure of fitness and health in general by many people. The common opinion is that fit people have low body weight. In this post I used the scoreboards from TSC to find out, if the body weight is related to General Physical Preparedness.
