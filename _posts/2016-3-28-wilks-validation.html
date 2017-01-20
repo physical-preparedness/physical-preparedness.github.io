@@ -1,0 +1,224 @@
+---
+layout: post
+title: Validation of the Wilks Coefficient with Raw Powerlifting Scoreboards
+---
+
+Imagine a person weighting 100 kg and lifting 150 kg. Is this person stronger than another person lifting just 140kg with 70kg body weight? In the absolute numbers yes. But in respect to their body weights? It depends.
+
+
+<p>
+In the powerlifting world there exists something called the Wilks equation. With the Wilks equation you can estimate the Wilks points according to the body weight of a lifter, total weight lifted and gender. The total weight lifted is the sum of benchpress, squat and deadlift. The process of estimating the number of Wilks points is called the Wilks normalization. The Wilks normalization is used by many powerlifting federations. Sometimes it is also considered fair enough to be even used across the weight categories - to find the absolute winner of a powerlifting competition.
+</p>
+<p>
+On the other hand, a lot of people are complaining about this score. In my humble opinion, mainly the heavier people consider the Wilks score unfair, because it allows somebody with a lower total weight lifted to beat them in a competition. 
+</p>
+<p>
+Many alternatives to Wilks equation exist. Most common is the normalization of the lifted weight according to the body weight. If you ever heard: “You should deadlift at least 2 times your body weight!”, then you know what I am talking about. According to this normalization, if 70 kg lifter lifts 210 kg, then the 150 kg lifter should lift 450kg to be just equal. You can probably imagine why this normalization seems to be popular among the people with a lower body weight.
+</p>
+<p>
+So it seems that every normalization has some supporters and also complainers. The question remains, is the Wilks normalization a fair way how to compare lifters (or ordinary guys) with different body weight? 
+</p>
+
+
+<h2>Issue of Wilks Validation</h2>
+<p>
+I found a lot of discussions about validity of Wilks normalization and also one scientific study <a href="http://europepmc.org/abstract/med/10613442">(Vanderburgh PM, Batterham AM. Validation of the Wilks powerlifting formula. Medicine and science in sports and exercise. 1999 Dec;31(12):1869-75.)</a>. Problem is that every validation what I have found uses only the world records as a sample of population. That would be (maybe) good idea if you want to compare world records in different weight categories. But <span class="emp">the Wilks normalization is used during various competitions for thousands of lifters, so it does not really make sense to optimize it according a few record holders</span>. For your better understanding of the issue I prepared the following figure of simplified situation. Later in this post, you will see that the reality is like this (but slightly less straightforward).
+</p>
+
+<div class="regular_caption">Simplified relation of body weight and total according to skill level</div>
+<img class="half_image" src="/images/wilks1/lines_example.png" alt="Relation of body weight and total according to skill level"> 
+
+
+<h2>Chosen Population Sample for the Wilks Validation</h2>
+<p>
+To find out what is the most fair way of the lifted weight normalization, I used a big sample of raw powerlifters.
+<span class="emp">The raw powerlifting is closer to lifting heavy stuff in real life than the powerlifting with gear</span>, therefore I select only records from raw powerlifters for the validation sample.
+This sample is obtained from USAPL federation scoreboards.
+It contains records from all possible raw divisions and weight categories from events between 2012-2016. The sample distribution across divisions is in the following pie chart.
+</p>
+<div class="regular_caption">Distribution of lifters in divisions</div>
+<img class="half_image" src="/images/wilks1/raw_pie_chart.png" alt="Divisions distribution in the sample of USAPL"> 
+<p>
+<span class="emp">This data-set contains records from 8091 men and 3028 women.</span>
+Every man or woman has only one record in the data-set.
+The data-set statistical attributes are displayed in the following table.
+<ul>
+    <li>The <span class="emp">mean</span> stands for arithmetic mean value.</li>
+    <li>The <span class="emp">median</span> is median value (most common value).</li>
+    <li>The <span class="emp">std</span> is standard deviation (how much the data vary).</li>
+    <li>The <span class="emp">min</span> and the <span class="emp">max</span> are the minimal and maximal value.</li>
+</ul>
+</p>
+<div class="regular_caption">Statistical attributes of the data-set</div>
+<table class="table table-stripped table-small">
+<thead>
+    <tr>
+        <th></th>    
+        <th>mean [kg]</th>
+        <th>median [kg]</th>
+        <th>min [kg]</th>
+        <th>max [kg]</th>
+        <th>std [kg]</th>
+    </tr>
+</thead>
+<tbody>
+    <tr><td>Men Bodyweight</td><td>87.0</td><td>86.8</td><td>50.1</td><td>129.9</td><td>16.4</td></tr>
+    <tr><td>Women Bodyweight</td><td>68.1</td><td>66.1</td><td>41.6</td><td>109.8</td><td>13.3</td></tr>
+    <tr><td>Men Deadlift</td><td>204.9</td><td>207.5</td><td>60.0</td><td>374.2</td><td>44.4</td></tr>
+    <tr><td>Women Deadlift</td><td>127.1</td><td>122.5</td><td>52.6</td><td>305.0</td><td>31.0</td></tr>
+    <tr><td>Men Squat</td><td>171.8</td><td>172.5</td><td>52.2</td><td>367.5</td><td>44.1</td></tr>
+    <tr><td>Women Squat</td><td>101.2</td><td>97.5</td><td>52.2</td><td>285.0</td><td>29.3</td></tr>
+    <tr><td>Men Benchpress</td><td>118.6</td><td>120.0</td><td>22.5</td><td>275.0</td><td>31.8</td></tr>
+    <tr><td>Women Benchpress</td><td>59.4</td><td>55.0</td><td>20.4</td><td>177.5</td><td>19.4</td></tr>
+</tbody>
+</table>
+<p>
+To get better perspective of how the body weight distribution looks like, I prepared a nice histogram.
+If you expect a normal distribution, do not be surprised. The peaks are caused by the weight categories.
+</p>
+<div class="regular_caption">Distribution of the body weight in the data-set</div>
+<img class="regular_image" src="/images/wilks1/usapl_bodyweight.png" alt="Body weight distribution in the USAPL">  
+
+
+<h2>Wilks Coefficient and the Total Weight Lifted</h2>
+<p>
+Now it is time to answer the main question - <i>Is the Wilks normalization fair?</i>. Let's start with a figure.
+</p>
+<div class="regular_caption">Dependency of the total weight lifted on the body weight (all divisions)</div>
+<img class="regular_image" src="/images/wilks1/wilks_total.png" alt="Dependency of total weight lifted on body weight"> 
+<p>
+Now, you can probably see the same things as I do. If not, see the following table containing correlations of the body weights and totals.
+If you do not remember what is correlation coefficient:
+<ul>
+    <li>correlation coefficient close to 1.0 - the body weight is directly related to the total weight lifted</li>
+    <li>correlation coefficient close to -1.0 - the body weight is indirectly related to the total weight lifted</li>
+    <li>correlation coefficient close to 0 - the body weight is not related to the total weight lifted</li>
+</ul>
+The last note - almost every correlation has its p-value<0.05, only the women teen division has higher p-value for the body weight normalization, so there is only negligible chance that the found correlations are random.
+</p>
+<div class="regular_caption">Correlation coefficients of the body weight and the total weight lifted</div>
+<table class="table table-stripped table-small">
+<thead>
+    <tr>
+        <th>Gender</th>  
+        <th>Division</th>
+        <th>Athletes</th>
+        <th>Lifted Weight</th>
+        <th>Wilks Points</th>
+        <th>Lifted / Body Weight</th>
+    </tr>
+</thead>
+<tbody>
+<tr><td>Men</td><td></td><td>8091</td><td>0.585</td><td>0.188</td><td>-0.231</td></tr>
+<tr><td>Men</td><td>Master</td><td>910</td><td>0.519</td><td>0.179</td><td>-0.232</td></tr>
+<tr><td>Men</td><td>Open</td><td>3789</td><td>0.584</td><td>0.178</td><td>-0.286</td></tr>
+<tr><td>Men</td><td>Teen</td><td>1587</td><td>0.566</td><td>0.116</td><td>-0.256</td></tr>
+<tr><td>Men</td><td>Junior</td><td>1608</td><td>0.618</td><td>0.157</td><td>-0.297</td></tr>
+<tr><td>Women</td><td></td><td>3028</td><td>0.501</td><td>0.029</td><td>-0.279</td></tr>
+<tr><td>Women</td><td>Master</td><td>433</td><td>0.401</td><td>-0.146</td><td>-0.441</td></tr>
+<tr><td>Women</td><td>Open</td><td>1702</td><td>0.522</td><td>0.053</td><td>-0.273</td></tr>
+<tr><td>Women</td><td>Teen</td><td>315</td><td>0.533</td><td>0.061</td><td>-0.224</td></tr>
+<tr><td>Women</td><td>Junior</td><td>506</td><td>0.535</td><td>0.055</td><td>-0.239</td></tr>
+</tbody>
+</table>
+<p>
+Finally, here is the conclusion of the figure and the table:
+<ul class="emp_result">
+    <li>Heavier people really have bigger totals in general, thus a normalization is needed.</li>
+    <li>The Wilks normalization seems slightly sub-optimal for men and almost optimal for women (as far as we can test with this sample).</li>
+    <li>The Wilks normalization is more fair than normalization according to the body weight.</li>
+    <li>It seems that lifters are less dependent on their body weight with increasing age in general (exception is teen men).</li>
+</ul>
+</p>
+
+
+<h2>Wilks Coefficient and the Individual Lifts</h2>
+<p>
+Other minor question is, whether the Wilks coefficient can be used for the normalization of an individual lift.
+Theoretically it should not, because it was designed according to the total weight lifted distribution.
+In other words, every lift is specific and needs own way of normalization, therefore <span class="emp">one particular normalization cannot be universal for every kind of lift</span>.
+No matter how obvious it is, a lot of people is still using the Wilks coefficient to compare lifters according to a single lift.
+In their defense, they do not have too many other options, therefore I understand them.
+</p>
+<p>
+Let's see, how big mistake one can do with the Wilks normalization usage for a single lift. See table of correlations below. Again, all correlations are significant (p<0.05).
+</p>
+<div class="regular_caption">Correlation coefficients of the body weight and the individual lifts</div>
+<table class="table table-stripped table-small">
+<thead>
+    <tr>
+        <th></th>    
+        <th>Lifted Weight</th>
+        <th>Wilks Points</th>
+        <th>Lifted / Body Weight</th>
+    </tr>
+</thead>
+<tbody>
+<tr><td>Men Deadlift</td><td>0.524</td><td>0.075</td><td>-0.331</td></tr>
+<tr><td>Women Deadlift</td><td>0.493</td><td>-0.024</td><td>-0.333</td></tr>
+<tr><td>Men Squat</td><td>0.568</td><td>0.218</td><td>-0.154</td></tr>
+<tr><td>Women Squat</td><td>0.473</td><td>0.045</td><td>-0.231</td></tr>
+<tr><td>Men Benchpress</td><td>0.568</td><td>0.243</td><td>-0.11</td></tr>
+<tr><td>Women Benchpress</td><td>0.459</td><td>0.081</td><td>-0.174</td></tr>
+</tbody>
+</table>
+<p>
+In the above table we can see some interesting points:
+<ul class="emp_result">
+    <li>Performance of men is more dependent on the body weight than performance of women.</li>
+    <li>The Wilks normalization seems to work not too bad. The worst result for men is benchpress and the best result I calculated for women is deadlift.</li>
+    <li>The Wilks normalization is more fair than the normalization according to the body weight, except the men squat and men benchpress</li>
+</ul>
+</p>
+
+<h2>What is Good According to Wilks</h2>
+<p>
+You probably wonder, whether you are better than average according to the Wilks score.
+The following table can give you a clue.
+But do not fool yourself, this data-set consists of people with various age and lifting experience. If you compare yourself with the table values, there is no assurance that the output will be fair or relevant. 
+</p>
+<div class="regular_caption">Average values of the Wilks points for the data-set lifters</div>
+<table class="table table-stripped table-small">
+<thead>
+    <tr>
+        <th></th>    
+        <th>mean [1]</th>
+        <th>median [1]</th>
+        <th>min [1]</th>
+        <th>max [1]</th>
+        <th>std [1]</th>
+    </tr>
+</thead>
+<tbody>
+<tr><td>Men Total</td><td>327.7</td><td>332.6</td><td>107.2</td><td>585.8</td><td>61.1</td></tr>
+<tr><td>Women Total</td><td>296.7</td><td>291.2</td><td>133.5</td><td>621.1</td><td>63.9</td></tr>
+<tr><td>Men Deadlift</td><td>135.9</td><td>137.3</td><td>35.7</td><td>239.8</td><td>24.7</td></tr>
+<tr><td>Women Deadlift</td><td>131.2</td><td>128.6</td><td>53.9</td><td>252.4</td><td>26.8</td></tr>
+<tr><td>Men Squat</td><td>113.5</td><td>115.1</td><td>29.9</td><td>218.1</td><td>24.3</td></tr>
+<tr><td>Women Squat</td><td>104.3</td><td>102.8</td><td>46.8</td><td>240.0</td><td>25.2</td></tr>
+<tr><td>Men Benchpress</td><td>78.3</td><td>79.1</td><td>16.0</td><td>172.1</td><td>17.7</td></tr>
+<tr><td>Women Benchpress</td><td>61.2</td><td>58.8</td><td>22.6</td><td>161.5</td><td>16.7</td></tr>
+</tbody>
+</table>
+
+
+
+
+
+<h2>Conclusion</h2>
+<p>
+And finally, the message of this post is:
+<ul class="emp_result">
+    <li>The Wilks normalization is much more fair than normalization according to the body weight or no normalization. It works well especially for women.</li>
+    <li>The Wilks normalization seems to work also for single lifts, especially for men and women deadlift, women benchpress and women squat.</li>
+    <li>The normalization according to the body weight is better than no normalization.</li>
+</ul>
+</p>
+
+
+
+ 
+
+
+
+
